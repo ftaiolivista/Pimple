@@ -159,7 +159,7 @@ class Pimple implements ArrayAccess
     	if (!isset($this->values[$src])) {
     		throw new InvalidArgumentException(sprintf('Identifier "%s" is not defined.', $id));
     	}
-    	$this->values[$dst] &= $this->values[$src];
+    	$this->values[$dst] =& $this->values[$src];
     }
     
 }
