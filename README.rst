@@ -64,7 +64,16 @@ anonymous function with the ``share()`` method::
     $c['session'] = $c->share(function ($c) {
         return new Session($c['session_storage']);
     });
+    
+Defining aliases
+---------------------
 
+Sometimes is usefull to have aliases. You can use the share method like:
+	
+	$c->alias('session', 'sss');
+	
+to create aliases.
+	
 Protecting Parameters
 ---------------------
 
