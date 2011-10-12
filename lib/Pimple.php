@@ -145,4 +145,21 @@ class Pimple implements ArrayAccess
 
         return $this->values[$id];
     }
+    
+    /**
+    * Sometimes is usefull to have properties/objects aliases
+    *
+    * @param string $src The unique identifier for existing the parameter or object
+    *
+    * @param string $dst The unique new alias
+    *
+    * @throws InvalidArgumentException if the identifier is not defined
+    */
+    function alias($src, $dst){
+    	if (!isset($this->values[$src])) {
+    		throw new InvalidArgumentException(sprintf('Identifier "%s" is not defined.', $id));
+    	}
+    	$this->values[$dst] &= $this->values[$src];
+    }
+    
 }
